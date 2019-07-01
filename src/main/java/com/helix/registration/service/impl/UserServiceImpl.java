@@ -32,11 +32,11 @@ public class UserServiceImpl implements UserService {
     public RestResponseDTO registerUser(UserDTO userDTO) {
         List<User> usersCheckEmail = userRepository.findAllByEmail(userDTO.getEmail());
         if (!CollectionUtils.isEmpty(usersCheckEmail)) {
-            throw new RestException(RestError.EMAIL_IS_EXITS, HttpStatus.BAD_REQUEST);
+            throw new RestException(RestError.EMAIL_IS_EXITS, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         List<User> usersCheckPhoneNumber = userRepository.findAllByPhoneNumber(userDTO.getPhoneNumber());
         if (!CollectionUtils.isEmpty(usersCheckPhoneNumber)) {
-            throw new RestException(RestError.EMAIL_IS_EXITS, HttpStatus.BAD_REQUEST);
+            throw new RestException(RestError.PHONE_NUMBER_IS_EXITS, HttpStatus.INTERNAL_SERVER_ERROR);
         }
         MapperFacade mapper = mapperFactory.getMapperFacade();
         User user =  mapper.map(userDTO, User.class);
