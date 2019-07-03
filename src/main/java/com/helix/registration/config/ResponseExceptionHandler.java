@@ -16,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {
 
-
-
     @ExceptionHandler(RestException.class)
     public ResponseEntity<RestResponseDTO<ErrorResponseDTO>> handleRestException(HttpServletRequest request, RestException ex) {
         RestResponseDTO<ErrorResponseDTO> errorResponse = RestResponseWrapper.wrapErrorResponse(

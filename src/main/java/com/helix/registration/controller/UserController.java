@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value = "")
+    @PostMapping(value = "/register")
     public RestResponseDTO doRegister(@RequestBody UserDTO userDTO) {
         return userService.registerUser(userDTO);
     }
