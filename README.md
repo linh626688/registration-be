@@ -1,5 +1,5 @@
 
-# Registration FrontEnd
+# Registration BackEnd
 This is simple registration backend using the following technologies
 - Framework: Spring Boot
 - ORM Framework: JPA
